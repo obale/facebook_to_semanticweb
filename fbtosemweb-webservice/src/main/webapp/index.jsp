@@ -47,6 +47,10 @@
                 <li> <a href="sioc">Wall to SIOC</a></li>
         </ul>
 
+        <div>
+                All files were evaluated with the <a href="http://www.w3.org/RDF/Validator/" target="_blank">W3C RDF Validator</a>
+        </div>
+
         <h4>SOAP Web Service</h4>
 
                 <div>
@@ -120,6 +124,10 @@
                 <tr>
                         <td><b>Data Storage</b></td>
                         <td>There is no storage, data is exported on-the-fly.</td>
+                </tr>
+                <tr>
+                        <td><b>Source Code</b></td>
+                        <td><a href="http://sources.networld.to/?p=application/fb/fbsemweb.git;a=summary" target="_blank">Git Repository</a></td>
                 </tr>
         </table>
 
