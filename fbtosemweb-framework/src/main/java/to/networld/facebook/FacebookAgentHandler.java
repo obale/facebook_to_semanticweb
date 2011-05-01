@@ -36,6 +36,7 @@ public class FacebookAgentHandler extends AbstractFacebookEntity {
 	private final String FB_WALL_URL;
 	private final String FB_LIKES_URL;
 	private final String FB_FRIENDS_URL;
+	private final String FB_PAGES_URL;
 	
 	public FacebookAgentHandler(String _accessToken) {
 		this.accessToken = _accessToken;
@@ -43,6 +44,7 @@ public class FacebookAgentHandler extends AbstractFacebookEntity {
 		this.FB_WALL_URL = "https://graph.facebook.com/me/feed?" + this.accessToken;
 		this.FB_LIKES_URL = "https://graph.facebook.com/me/likes?" + this.accessToken;
 		this.FB_FRIENDS_URL = "https://graph.facebook.com/me/friends?" + this.accessToken;
+		this.FB_PAGES_URL = "https://graph.facebook.com/me/accounts?" + this.accessToken;
 	}
 	
 	public FacebookAgent getFacebookAgent() throws IOException, JSONException {
@@ -81,4 +83,17 @@ public class FacebookAgentHandler extends AbstractFacebookEntity {
 		}
 		return resultEntries;
 	}
+	
+	public Vector<FacebookPage> getOwnedPages() throws IOException, JSONException {
+		Vector<FacebookPage> resultEntries = new Vector<FacebookPage>();
+		JSONObject pagesObject = this.getContent(this.FB_PAGES_URL);
+		JSONArray pagesEntries = pagesObject.getJSONArray("data");
+		for ( int count=0; count < pagesEntries.length(); count++ ) {
+			JSONObject jsonEntry = (JSONObject) pagesEntries.get(count);
+			FacebookPage pagesEntry = new FacebookPage(jsonEntry);
+			resultEntries.add(pagesEntry);
+		}
+		return resultEntries;
+	}
+	
 }

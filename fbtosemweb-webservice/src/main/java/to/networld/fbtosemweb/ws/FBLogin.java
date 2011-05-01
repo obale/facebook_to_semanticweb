@@ -83,9 +83,6 @@ public class FBLogin extends HttpServlet {
 
 			_response.sendRedirect(fbcodeURL.toString());
 		} else {
-			/**
-			 * Access the client information.
-			 */
 			if ( access_token == null ) {
 				access_token = getAccessToken(fbcode, ServletHelper.getCurrentUrl(_request, false));
 				context.setAttribute("access_token", access_token);

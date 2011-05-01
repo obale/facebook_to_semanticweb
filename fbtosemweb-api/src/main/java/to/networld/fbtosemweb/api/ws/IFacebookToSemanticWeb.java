@@ -1,8 +1,5 @@
-package to.networld.fbtosemweb.api.ws;
-import javax.jws.WebParam;
-
 /**
- * fbtosemweb-api - 
+ * fbtosemweb-api - to.networld.fbtosemweb.api.ws
  *
  * Copyright (C) 2011 by Networld Project
  * Written by Alex Oberhauser <oberhauseralex@networld.to>
@@ -20,6 +17,8 @@ import javax.jws.WebParam;
  * You should have received a copy of the GNU General Public License
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
+package to.networld.fbtosemweb.api.ws;
+import javax.jws.WebParam;
 
 /**
  * @author Alex Oberhauser

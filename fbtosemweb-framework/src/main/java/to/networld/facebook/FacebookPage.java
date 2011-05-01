@@ -20,33 +20,28 @@
 
 package to.networld.facebook;
 
-import java.io.IOException;
-import java.util.Properties;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * @author Alex Oberhauser
  */
-public class AppSecretHandler {
-
-	public static String getApplicationID() {
-		Properties prop = new Properties();
-		try {
-			prop.load(AppSecretHandler.class.getResourceAsStream("/fb.properties"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return prop.getProperty("fb.appid");
+public class FacebookPage {
+	private final JSONObject page;
+	
+	public FacebookPage(JSONObject _page) {
+		this.page = _page;
 	}
 	
-	public static String getApplicationSecret() {
-		Properties prop = new Properties();
-		try {
-			prop.load(AppSecretHandler.class.getResourceAsStream("/fb.properties"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return prop.getProperty("fb.secret");
+	public String getPageID() throws JSONException {
+		return this.page.getString("id");
+	}
+	
+	public String getPageName() throws JSONException {
+		return this.page.getString("name");
+	}
+	
+	public String getPageCategory() throws JSONException {
+		return this.page.getString("category");
 	}
 }

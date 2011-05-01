@@ -19,8 +19,8 @@
 	if ( access_token == null ) {
 %>
         <div style="text-align: center">
-                <a href="login"><img src="pic/fb_connect.gif"></a><p/>
-                 The application don't saves any of your data. If you want to check that you could look into the <a href="http://sources.networld.to/?p=application/fb/fbsemweb.git;a=summary" target="_blank">source code</a>.
+                <a href="login"><img src="pic/fb_connect.gif" border="0"/></a><p/>
+                 The application does not save your data. If you want to check that, you could look into the <a href="http://sources.networld.to/?p=application/fb/fbsemweb.git;a=summary" target="_blank">source code</a>.
         </div>
         <hr/>
 <%
@@ -33,7 +33,7 @@
                 Welcome, <b><a href="foaf" target="_blank"><% out.print(agent.getProperty("name")); %></a></b>
         </div>
         <div class="header-right">
-                <a href="logout"><img src="pic/fb_logout.gif"></a>
+                <a href="logout"><img src="pic/fb_logout.gif" border="0"/></a>
         </div>
         <br/>
         <hr/>
@@ -72,7 +72,7 @@
                                 String access_tokenInput = access_token.split("=")[1];
                                 if ( isSecure ) {
                                 %>
-                                        <td><input type="text" readonly=true size=140 disabled=true value="<% out.println(access_tokenInput); %>"></input></td>
+                                        <td><input type="text" readonly="true" size="110" value="<% out.println(access_tokenInput); %>"></input></td>
                                 <%
                                 } else {
                                 	String sslURL = request.getRequestURL().toString().replaceFirst("http", "https").replaceFirst("8080", "8443");
@@ -159,8 +159,11 @@
 		}
 	} // End "Logged In" Block
 %>
+        <div class="footer-left">
+                <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fapps%2Fapplication.php%3Fid%3D152466208148875&amp;send=true&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+        </div>
 
-        <div style="text-align: center">
+        <div class="footer-right">
                 &copy; <a href="http://devnull.networld.to/foaf.rdf#me" target="_blank">Alex Oberhauser</a>
         </div>
         </body>

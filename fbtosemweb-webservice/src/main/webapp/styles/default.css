@@ -24,3 +24,13 @@ div.header-right {
         position: absolute;
         right: 10px;
 }
+
+div.footer-left {
+        position: absolute;
+        left: 10px;
+        }
+
+div.footer-right {
+        position: absolute;
+        right: 10px;
+}
