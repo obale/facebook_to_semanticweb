@@ -19,7 +19,8 @@
 	if ( access_token == null ) {
 %>
         <div style="text-align: center">
-                <a href="login"><img src="pic/fb_connect.gif"></a>
+                <a href="login"><img src="pic/fb_connect.gif"></a><p/>
+                 The application don't saves any of your data. If you want to check that you could look into the <a href="http://sources.networld.to/?p=application/fb/fbsemweb.git;a=summary" target="_blank">source code</a>.
         </div>
         <hr/>
 <%
