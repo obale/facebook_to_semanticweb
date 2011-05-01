@@ -31,22 +31,26 @@ import org.json.JSONObject;
 /**
  * @author Alex Oberhauser
  */
-public class FacebookWallToSIOC extends AbstractRDFExporter {
-	private JSONObject wall;
+public class FacebookToSIOC extends AbstractRDFExporter {
+	private JSONObject object;
 	
-	public FacebookWallToSIOC(FacebookAgentHandler _agentHandler) throws IOException, JSONException {
-		super(_agentHandler);
+	public FacebookToSIOC(JSONObject _object) throws IOException, JSONException {
+		super();
+		this.object = _object;
 		this.createSIOC();
 	}
 	
+	/**
+	 * TODO: If a link was posted, add also the link to the SIOC block.
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	public void createSIOC() throws IOException, JSONException {
-		this.wall = this.agentHandler.getFacebookWall();
-		
 		Element rootNode = this.rdfDocument.addElement(new QName("RDF", RDF_NS));
 		rootNode.add(SIOC_NS);
 		rootNode.add(DCT_NS);
 		
-		JSONArray wallEntries = this.wall.getJSONArray("data");
+		JSONArray wallEntries = this.object.getJSONArray("data");
 		for ( int count=0; count < wallEntries.length(); count++ ) {
 			JSONObject wallEntry = (JSONObject) wallEntries.get(count);
 			Element siocPost = rootNode.addElement(new QName("Post", SIOC_NS))

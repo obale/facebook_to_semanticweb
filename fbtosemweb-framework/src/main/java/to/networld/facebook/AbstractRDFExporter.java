@@ -29,13 +29,10 @@ import org.dom4j.Namespace;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
-import to.networld.facebook.FacebookAgentHandler;
-
 /**
  * @author Alex Oberhauser
  */
 public abstract class AbstractRDFExporter {
-	protected final FacebookAgentHandler agentHandler;
 	protected Document rdfDocument;
 	
 	private static final int INDENT_SIZE = 4;
@@ -49,9 +46,7 @@ public abstract class AbstractRDFExporter {
 	public static Namespace GEO_NS = DocumentHelper.createNamespace("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#");
 	public static Namespace SIOC_NS = DocumentHelper.createNamespace("sioc", "http://rdfs.org/sioc/ns#");
 	
-	public AbstractRDFExporter(FacebookAgentHandler _agentHandler) {
-		this.agentHandler = _agentHandler;
-		
+	public AbstractRDFExporter() {		
 		this.rdfDocument = DocumentHelper.createDocument();
 		this.rdfDocument.setXMLEncoding("UTF-8");
 		

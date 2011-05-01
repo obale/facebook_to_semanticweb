@@ -31,7 +31,7 @@ import org.json.JSONException;
 
 import to.networld.facebook.FacebookAgentHandler;
 import to.networld.facebook.FacebookToFOAF;
-import to.networld.facebook.FacebookWallToSIOC;
+import to.networld.facebook.FacebookToSIOC;
 import to.networld.fbtosemweb.api.ws.IFacebookToSemanticWeb;
 
 /**
@@ -54,7 +54,16 @@ public class FacebookToSemanticWeb  implements IFacebookToSemanticWeb {
 		if ( _accessToken == null )
 			throw new WebServiceException("Please specify the 'access_token' parameter");
 		FacebookAgentHandler currentAgentHandler = new FacebookAgentHandler("access_token=" + _accessToken);				
-		FacebookWallToSIOC siocFile = new FacebookWallToSIOC(currentAgentHandler);
+		FacebookToSIOC siocFile = new FacebookToSIOC(currentAgentHandler.getFacebookWallFeed());
+		return siocFile.toString();
+	}
+	
+	@WebMethod
+	public String convertFacebookHomeToSIOC(@WebParam(name="access_token")String _accessToken) throws IOException, JSONException {
+		if ( _accessToken == null )
+			throw new WebServiceException("Please specify the 'access_token' parameter");
+		FacebookAgentHandler currentAgentHandler = new FacebookAgentHandler("access_token=" + _accessToken);				
+		FacebookToSIOC siocFile = new FacebookToSIOC(currentAgentHandler.getFacebookHomeFeed());
 		return siocFile.toString();
 	}
 }

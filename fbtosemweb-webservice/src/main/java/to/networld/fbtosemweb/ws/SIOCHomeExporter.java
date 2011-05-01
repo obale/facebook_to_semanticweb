@@ -32,12 +32,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 
 import to.networld.facebook.FacebookAgentHandler;
-import to.networld.facebook.FacebookWallToSIOC;
+import to.networld.facebook.FacebookToSIOC;
 
 /**
  * @author Alex Oberhauser
  */
-public class SIOCExporter extends HttpServlet {
+public class SIOCHomeExporter extends HttpServlet {
 	private static final long serialVersionUID = -5966673735413828614L;
 
 	@Override
@@ -58,10 +58,10 @@ public class SIOCExporter extends HttpServlet {
 		
 		try {
 			FacebookAgentHandler currentAgentHandler = new FacebookAgentHandler(access_token);
-			FacebookWallToSIOC siocFile = new FacebookWallToSIOC(currentAgentHandler);
+			FacebookToSIOC siocFile = new FacebookToSIOC(currentAgentHandler.getFacebookHomeFeed());
 			_response.setCharacterEncoding("UTF-8");
 			_response.setContentType("application/rdf+xml; charset=UTF-8");
-			_response.setHeader("Content-Disposition", "attachment; filename=sioc.rdf");
+			_response.setHeader("Content-Disposition", "attachment; filename=sioc_home.rdf");
 			out.println(siocFile);
 		} catch (JSONException e) {
 			out.println(e.getLocalizedMessage());

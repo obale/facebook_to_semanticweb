@@ -45,7 +45,8 @@
 
         <ul>
                 <li> <a href="foaf">Facebook Profile to FOAF</a></li>
-                <li> <a href="sioc">Wall to SIOC</a></li>
+                <li> <a href="wall">Wall to SIOC</a></li>
+                <li> <a href="home">Home to SIOC</a></li>
         </ul>
 
         <div>
@@ -89,7 +90,8 @@
                                 <td>Examples</td>
                                 <td>
                                         <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookProfileToFOAF?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Profile (FOAF)</a>
-                                        and <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookWallToSIOC?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Wall (SIOC)</a>
+                                        , <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookWallToSIOC?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Wall Feed (SIOC)</a>
+                                        and <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookHomeToSIOC?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Home Feed (SIOC)</a>
                                 </td>
                         </tr>
                                         <%
@@ -106,7 +108,7 @@
         <table>
                 <tr>
                         <td width="250px"><b>Version</b></td>
-                        <td>0.2 (<a href="ChangeLog" target="_blank">ChangeLog</a>)</td>
+                        <td>0.3 (<a href="ChangeLog" target="_blank">ChangeLog</a>)</td>
                 </tr>
                 <tr>
                         <td><b>Direct Link</b></td>
@@ -145,12 +147,11 @@
         <h2>Known Bugs and Missing Features</h2>
 
         <ul>
-                <li> [FEATURE] Getting GPS Coordinates for the location</li>
-                <li> [FEATURE] Linking the Location to the <a href="http://linkeddata.org/" target="_blank">Linked Open Data Cloud</a></li>
-                <li> [FEATURE] Provide export in alternative formats (e.g. N3, Turtle)</li>
+                <li> [BUG] All links are pointing to the Facebook Graph API and not to the Linke Open Data Cloud.
+                <li> [FEATURE] Linking the Data to the <a href="http://linkeddata.org/" target="_blank">Linked Open Data Cloud</a></li>
                 <li> [FEATURE] Let the user choose if the access_token should expire or not (offline_access). Could be useful for SOAP Service Access.</li>
                 <li> [FEATURE] Wrapper that provides public available FOAF File in Real Time, e.g. http://fbtofoaf.networld.to/users/john.doe/foaf.rdf</li>
-                <li> [BUG] All links are pointing to the Facebook Graph API and not to the Linke Open Data Cloud.
+                <li> [FEATURE] If a link was posted, add also the link to the SIOC block.
         </ul>
         <hr/>
 <%

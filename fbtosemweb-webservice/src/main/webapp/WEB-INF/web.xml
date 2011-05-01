@@ -62,14 +62,22 @@
         </servlet-mapping>
 
         <servlet>
-                <servlet-name>siocExporter</servlet-name>
-                <servlet-class>to.networld.fbtosemweb.ws.SIOCExporter</servlet-class>
+                <servlet-name>wallExporter</servlet-name>
+                <servlet-class>to.networld.fbtosemweb.ws.SIOCWallExporter</servlet-class>
         </servlet>
         <servlet-mapping>
-                <servlet-name>siocExporter</servlet-name>
-                <url-pattern>/sioc</url-pattern>
+                <servlet-name>wallExporter</servlet-name>
+                <url-pattern>/wall</url-pattern>
         </servlet-mapping>
 
+        <servlet>
+                <servlet-name>homeExporter</servlet-name>
+                <servlet-class>to.networld.fbtosemweb.ws.SIOCHomeExporter</servlet-class>
+        </servlet>
+        <servlet-mapping>
+                <servlet-name>homeExporter</servlet-name>
+                <url-pattern>/home</url-pattern>
+        </servlet-mapping>
         <session-config>
                 <session-timeout>60</session-timeout>
         </session-config>

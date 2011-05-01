@@ -26,4 +26,5 @@ import javax.jws.WebParam;
 public interface IFacebookToSemanticWeb {
 	public String convertFacebookProfileToFOAF(@WebParam(name="accessToken")String _accessToken) throws Exception;
 	public String convertFacebookWallToSIOC(@WebParam(name="accessToken")String _accessToken) throws Exception;
+	public String convertFacebookHomeToSIOC(@WebParam(name="accessToken")String _accessToken) throws Exception;
 }

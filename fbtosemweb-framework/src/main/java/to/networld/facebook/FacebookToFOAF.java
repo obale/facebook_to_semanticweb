@@ -32,10 +32,11 @@ import org.json.JSONException;
  */
 public class FacebookToFOAF extends AbstractRDFExporter {
 	private FacebookAgent agent;
-
+	private FacebookAgentHandler agentHandler;
 	
 	public FacebookToFOAF(FacebookAgentHandler _agentHandler) throws IOException, JSONException {
-		super(_agentHandler);
+		super();
+		this.agentHandler = _agentHandler;
 		this.createFOAF();
 	}
 	
