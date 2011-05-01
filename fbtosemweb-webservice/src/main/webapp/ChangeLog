@@ -1,0 +1,19 @@
+Release v0.2
+============
+
+* Implementation switched from PHP to JAVA.
+  That allows more flexibility for further development.
+* Providing an SOAP Endpoint with WSDL File.
+* Showing the access_token (needed for SOAP Service) only via HTTPS
+  Connection.
+* Login mechanism handled internally. That means no long parameters in the
+  URL.
+* Adding the possibility to give the access_token as request parameter, e.g.
+  http.../foaf?access_token=... or http.../sioc?access_token=...
+
+Release v0.1
+============
+
+* Quick PHP Hack to have a working FOAF Exporter. 
+* Exporting the Facebook Profile (+ Friends) to FOAF.
+* Exporting the Facebook Wall to SIOC.

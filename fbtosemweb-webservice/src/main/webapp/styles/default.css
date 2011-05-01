@@ -1,0 +1,26 @@
+body {
+        font-family: 'Lucida Grande', Verdana, Arial, sans-serif;
+}
+
+h1 {
+        text-align: center;
+}
+
+h1 a {
+        text-decoration: none;
+        color: #3b5998;
+}
+
+h1 a:hover {
+        text-decoration: underline;
+}
+
+div.header-left {
+        position: absolute;
+        left: 10px;
+        }
+
+div.header-right {
+        position: absolute;
+        right: 10px;
+}

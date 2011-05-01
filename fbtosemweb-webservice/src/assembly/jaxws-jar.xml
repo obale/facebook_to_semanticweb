@@ -1,0 +1,13 @@
+<assembly>
+	<id>jaxws</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<files>
+		<file>
+                        <source>target/classes/to/networld/fbtosemweb/ws/FacebookToSemanticWeb.class</source>
+			<outputDirectory>/cas</outputDirectory>
+		</file>
+	</files>
+</assembly>
