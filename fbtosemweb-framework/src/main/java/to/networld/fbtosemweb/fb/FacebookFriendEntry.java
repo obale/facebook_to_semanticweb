@@ -1,5 +1,5 @@
 /**
- * cas-framework - to.networld.facebook
+ * cas-framework - to.networld.fbtosemweb
  *
  * Copyright (C) 2011 by Networld Project
  * Written by Alex Oberhauser <oberhauseralex@networld.to>
@@ -18,30 +18,24 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package to.networld.facebook;
+package to.networld.fbtosemweb.fb;
 
 /**
  * @author Alex Oberhauser
  */
-public class FacebookLikesEntry {
+public class FacebookFriendEntry {
 	private final String id;
 	private final String name;
-	private final String category;
-	private final String createdTime;
 	
-	public FacebookLikesEntry(String _id, String _name, String _category, String _createdTime) {
+	public FacebookFriendEntry(String _id, String _name) {
 		this.id = _id;
 		this.name = _name;
-		this.category = _category;
-		this.createdTime = _createdTime;
 	}
 	
 	public String getID() { return this.id; }
 	public String getName() { return this.name; }
-	public String getCategory() { return this.category; }
-	public String getCreatedTime() { return this.createdTime; }
 	
 	public String toString() {
-		return this.name + "," + this.id + "," + this.category + "," + this.createdTime;
+		return this.name + "," + this.id;
 	}
 }

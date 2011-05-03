@@ -4,4 +4,4 @@ target
 .classpath
 .project
 .settings
-fb.properties
+default.properties

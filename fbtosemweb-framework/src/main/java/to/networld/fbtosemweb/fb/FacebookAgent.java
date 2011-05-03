@@ -1,5 +1,5 @@
 /**
- * cas-framework - to.networld.facebook
+ * cas-framework - to.networld.fbtosemweb
  *
  * Copyright (C) 2011 by Networld Project
  * Written by Alex Oberhauser <oberhauseralex@networld.to>
@@ -18,7 +18,7 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package to.networld.facebook;
+package to.networld.fbtosemweb.fb;
 
 import java.util.Vector;
 

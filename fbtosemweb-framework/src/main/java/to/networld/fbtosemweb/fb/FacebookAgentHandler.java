@@ -1,4 +1,4 @@
-package to.networld.facebook;
+package to.networld.fbtosemweb.fb;
 import java.io.IOException;
 import java.util.Vector;
 

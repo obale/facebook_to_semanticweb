@@ -10,7 +10,7 @@
 
 	<groupId>to.networld.fb</groupId>
 	<artifactId>fbtosemweb</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Facebook To Semantic Web</name>
 

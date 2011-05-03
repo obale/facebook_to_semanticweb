@@ -1,5 +1,5 @@
 /**
- * fbtosemweb-framework - to.networld.facebook
+ * fbtosemweb-framework - to.networld.fbtosemweb
  *
  * Copyright (C) 2011 by Networld Project
  * Written by Alex Oberhauser <oberhauseralex@networld.to>
@@ -18,23 +18,25 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package to.networld.facebook;
+package to.networld.fbtosemweb.common;
 
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Alex Oberhauser
  */
-public class AppSecretHandler {
+public class AppInformationHandler {
+	private static final Logger logger = Logger.getLogger(AppInformationHandler.class);
 
 	public static String getApplicationID() {
 		Properties prop = new Properties();
 		try {
-			prop.load(AppSecretHandler.class.getResourceAsStream("/fb.properties"));
+			prop.load(AppInformationHandler.class.getResourceAsStream("/default.properties"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.fatal(e.getLocalizedMessage());
 		}
 		return prop.getProperty("fb.appid");
 	}
@@ -42,11 +44,30 @@ public class AppSecretHandler {
 	public static String getApplicationSecret() {
 		Properties prop = new Properties();
 		try {
-			prop.load(AppSecretHandler.class.getResourceAsStream("/fb.properties"));
+			prop.load(AppInformationHandler.class.getResourceAsStream("/default.properties"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.fatal(e.getLocalizedMessage());
 		}
 		return prop.getProperty("fb.secret");
+	}
+	
+	public static String getVersion() {
+		Properties prop = new Properties();
+		try {
+			prop.load(AppInformationHandler.class.getResourceAsStream("/default.properties"));
+		} catch (IOException e) {
+			logger.fatal(e.getLocalizedMessage());
+		}
+		return prop.getProperty("version");
+	}
+	
+	public static String getAuthor() {
+		Properties prop = new Properties();
+		try {
+			prop.load(AppInformationHandler.class.getResourceAsStream("/default.properties"));
+		} catch (IOException e) {
+			logger.fatal(e.getLocalizedMessage());
+		}
+		return prop.getProperty("author");
 	}
 }

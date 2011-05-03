@@ -31,8 +31,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import to.networld.facebook.AppSecretHandler;
+import to.networld.fbtosemweb.common.AppInformationHandler;
 import to.networld.fbtosemweb.ws.common.ServletHelper;
+import to.networld.fbtosemweb.ws.common.SessionHandler;
 
 /**
  * @author Alex Oberhauser
@@ -40,10 +41,8 @@ import to.networld.fbtosemweb.ws.common.ServletHelper;
 public class FBLogin extends HttpServlet {
 	private static final long serialVersionUID = 9126837487867288807L;
 
-	private static final String APP_ID = AppSecretHandler.getApplicationID();
-	private static final String SECRET= AppSecretHandler.getApplicationSecret();
-	
-	public static final String SESSION_NAME = "nw_access_token";
+	private static final String APP_ID = AppInformationHandler.getApplicationID();
+	private static final String SECRET= AppInformationHandler.getApplicationSecret();
 
 	/**
 	 * Get the access_token to be able to access the client information.
@@ -74,7 +73,7 @@ public class FBLogin extends HttpServlet {
 		String fbcode = _request.getParameter("code");
 		PrintWriter out = _response.getWriter();
 		
-		String access_token = (String) _request.getSession().getAttribute(SESSION_NAME);
+		String access_token = SessionHandler.getAccessToken(_request);
 		if ( fbcode == null && access_token == null ) {
 			StringBuffer fbcodeURL = new StringBuffer();
 			fbcodeURL.append("https://www.facebook.com/dialog/oauth");
@@ -85,7 +84,7 @@ public class FBLogin extends HttpServlet {
 		} else {
 			if ( access_token == null ) {
 				access_token = getAccessToken(fbcode, ServletHelper.getCurrentUrl(_request, false));
-				_request.getSession().setAttribute(SESSION_NAME, access_token);
+				SessionHandler.initSession(_request, access_token);
 			}
 			_response.sendRedirect(".");
 		}

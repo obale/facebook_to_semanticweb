@@ -1,7 +1,8 @@
 <!doctype html>
-<%@page import="to.networld.fbtosemweb.ws.FBLogin"%>
-<%@page import="to.networld.facebook.FacebookAgentHandler"%>
-<%@page import="to.networld.facebook.FacebookAgent"%>
+<%@page import="to.networld.fbtosemweb.ws.common.SessionHandler"%>
+<%@page import="to.networld.fbtosemweb.common.AppInformationHandler"%>
+<%@page import="to.networld.fbtosemweb.fb.FacebookAgent"%>
+<%@page import="to.networld.fbtosemweb.fb.FacebookAgentHandler"%>
 <html>
         <head>
                 <title>Facebook To Semantic Web</title>
@@ -9,7 +10,7 @@
         </head>
         <body>
 <%
-			String access_token = (String)request.getSession().getAttribute(FBLogin.SESSION_NAME);
+			String access_token = SessionHandler.getAccessToken(request);
 %>
                 <div id="fb-root"></div>
 
@@ -47,7 +48,7 @@
         <ul>
                 <li> <a href="foaf">Facebook Profile to FOAF</a></li>
                 <li> <a href="wall">Wall to SIOC</a></li>
-                <li> <a href="home">Home to SIOC</a></li>
+                <!--<li> <a href="home">Home to SIOC</a></li>-->
         </ul>
 
         <div>
@@ -92,7 +93,8 @@
                                 <td>
                                         <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookProfileToFOAF?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Profile (FOAF)</a>
                                         , <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookWallToSIOC?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Wall Feed (SIOC)</a>
-                                        and <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookHomeToSIOC?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Home Feed (SIOC)</a>
+                                        <!--and <a href="<% out.println(request.getContextPath()); %>/services/fbtosemweb/convertFacebookHomeToSIOC?access_token=<% out.print(access_tokenInput); %>" target="_blank">Facebook Home Feed (SIOC)</a>
+                                        -->
                                 </td>
                         </tr>
                                         <%
@@ -109,7 +111,7 @@
         <table>
                 <tr>
                         <td width="250px"><b>Version</b></td>
-                        <td>0.3 (<a href="ChangeLog" target="_blank">ChangeLog</a>)</td>
+                        <td><% out.print(AppInformationHandler.getVersion());%> (<a href="ChangeLog" target="_blank">ChangeLog</a>)</td>
                 </tr>
                 <tr>
                         <td><b>Direct Link</b></td>

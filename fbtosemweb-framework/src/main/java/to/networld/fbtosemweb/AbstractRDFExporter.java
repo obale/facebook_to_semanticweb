@@ -18,7 +18,7 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package to.networld.facebook;
+package to.networld.fbtosemweb;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

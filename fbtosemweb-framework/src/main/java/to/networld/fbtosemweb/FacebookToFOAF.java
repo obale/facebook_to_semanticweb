@@ -1,5 +1,5 @@
 /**
- * cas-framework - to.networld.facebook
+ * cas-framework - to.networld.fbtosemweb
  *
  * Copyright (C) 2011 by Networld Project
  * Written by Alex Oberhauser <oberhauseralex@networld.to>
@@ -18,7 +18,7 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package to.networld.facebook;
+package to.networld.fbtosemweb;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -26,6 +26,13 @@ import java.util.Vector;
 import org.dom4j.Element;
 import org.dom4j.QName;
 import org.json.JSONException;
+
+import to.networld.fbtosemweb.fb.FacebookAgent;
+import to.networld.fbtosemweb.fb.FacebookAgentHandler;
+import to.networld.fbtosemweb.fb.FacebookEducationEntity;
+import to.networld.fbtosemweb.fb.FacebookEmployerEntity;
+import to.networld.fbtosemweb.fb.FacebookFriendEntry;
+import to.networld.fbtosemweb.fb.FacebookLikesEntry;
 
 /**
  * @author Alex Oberhauser

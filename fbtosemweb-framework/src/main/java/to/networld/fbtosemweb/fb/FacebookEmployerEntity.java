@@ -1,5 +1,5 @@
 /**
- * cas-framework - to.networld.facebook
+ * cas-framework - to.networld.fbtosemweb
  *
  * Copyright (C) 2011 by Networld Project
  * Written by Alex Oberhauser <oberhauseralex@networld.to>
@@ -18,7 +18,7 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package to.networld.facebook;
+package to.networld.fbtosemweb.fb;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,30 +26,26 @@ import org.json.JSONObject;
 /**
  * @author Alex Oberhauser
  */
-public class FacebookEducationEntity {
-	private final JSONObject education;
+public class FacebookEmployerEntity {
+	private final JSONObject employer;
 	
-	public FacebookEducationEntity(JSONObject _education) {
-		this.education = _education;
+	public FacebookEmployerEntity(JSONObject _employer) {
+		this.employer = _employer;
 	}
 	
-	public String getSchoolID() throws JSONException {
-		return this.education.getJSONObject("school").getString("id");
+	public String getEmployerID() throws JSONException {
+		return this.employer.getJSONObject("employer").getString("id");
 	}
 	
-	public String getSchoolName() throws JSONException {
-		return this.education.getJSONObject("school").getString("name");
+	public String getEmployerName() throws JSONException {
+		return this.employer.getJSONObject("employer").getString("name");
 	}
 	
-	public String getConcentrationID() throws JSONException {
-		return this.education.getJSONObject("concentration").getString("id");
+	public String getPositionID() throws JSONException {
+		return this.employer.getJSONObject("position").getString("id");
 	}
 	
-	public String getConcentrationName() throws JSONException {
-		return this.education.getJSONObject("concentration").getString("name");
-	}
-	
-	public String getEducationType() throws JSONException {
-		return this.education.getString("type");
+	public String getPositionName() throws JSONException {
+		return this.employer.getJSONObject("position").getString("name");
 	}
 }

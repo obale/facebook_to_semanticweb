@@ -29,10 +29,10 @@ import javax.xml.ws.WebServiceException;
 
 import org.json.JSONException;
 
-import to.networld.facebook.FacebookAgentHandler;
-import to.networld.facebook.FacebookToFOAF;
-import to.networld.facebook.FacebookToSIOC;
+import to.networld.fbtosemweb.FacebookToFOAF;
+import to.networld.fbtosemweb.FacebookToSIOC;
 import to.networld.fbtosemweb.api.ws.IFacebookToSemanticWeb;
+import to.networld.fbtosemweb.fb.FacebookAgentHandler;
 
 /**
  * @author Alex Oberhauser
@@ -58,12 +58,12 @@ public class FacebookToSemanticWeb  implements IFacebookToSemanticWeb {
 		return siocFile.toString();
 	}
 	
-	@WebMethod
-	public String convertFacebookHomeToSIOC(@WebParam(name="access_token")String _accessToken) throws IOException, JSONException {
-		if ( _accessToken == null )
-			throw new WebServiceException("Please specify the 'access_token' parameter");
-		FacebookAgentHandler currentAgentHandler = new FacebookAgentHandler("access_token=" + _accessToken);				
-		FacebookToSIOC siocFile = new FacebookToSIOC(currentAgentHandler.getFacebookHomeFeed());
-		return siocFile.toString();
-	}
+//	@WebMethod
+//	public String convertFacebookHomeToSIOC(@WebParam(name="access_token")String _accessToken) throws IOException, JSONException {
+//		if ( _accessToken == null )
+//			throw new WebServiceException("Please specify the 'access_token' parameter");
+//		FacebookAgentHandler currentAgentHandler = new FacebookAgentHandler("access_token=" + _accessToken);				
+//		FacebookToSIOC siocFile = new FacebookToSIOC(currentAgentHandler.getFacebookHomeFeed());
+//		return siocFile.toString();
+//	}
 }

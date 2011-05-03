@@ -23,7 +23,6 @@ package to.networld.fbtosemweb.ws;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +30,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONException;
 
-import to.networld.facebook.FacebookAgentHandler;
-import to.networld.facebook.FacebookToSIOC;
+import to.networld.fbtosemweb.FacebookToSIOC;
+import to.networld.fbtosemweb.fb.FacebookAgentHandler;
+import to.networld.fbtosemweb.ws.common.SessionHandler;
 
 /**
  * @author Alex Oberhauser
@@ -42,8 +42,7 @@ public class SIOCWallExporter extends HttpServlet {
 
 	@Override
 	public void doGet(HttpServletRequest _request, HttpServletResponse _response) throws ServletException, IOException {
-		ServletContext context = getServletContext();
-		String access_token = (String) context.getAttribute("access_token");
+		String access_token = SessionHandler.getAccessToken(_request);
 		if ( access_token == null ) {
 			access_token = (String) _request.getParameter("access_token");
 			if ( access_token == null ) {

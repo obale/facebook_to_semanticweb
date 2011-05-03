@@ -1,5 +1,5 @@
 /**
- * cas-framework - to.networld.facebook
+ * cas-framework - to.networld.fbtosemweb
  *
  * Copyright (C) 2011 by Networld Project
  * Written by Alex Oberhauser <oberhauseralex@networld.to>
@@ -18,7 +18,7 @@
  * along with this software.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package to.networld.facebook;
+package to.networld.fbtosemweb;
 
 import java.io.IOException;
 
@@ -49,7 +49,7 @@ public class FacebookToSIOC extends AbstractRDFExporter {
 		Element rootNode = this.rdfDocument.addElement(new QName("RDF", RDF_NS));
 		rootNode.add(SIOC_NS);
 		rootNode.add(DCT_NS);
-		
+
 		JSONArray wallEntries = this.object.getJSONArray("data");
 		for ( int count=0; count < wallEntries.length(); count++ ) {
 			JSONObject wallEntry = (JSONObject) wallEntries.get(count);
@@ -82,7 +82,7 @@ public class FacebookToSIOC extends AbstractRDFExporter {
 						replyPost.addElement(new QName("modified", SIOC_NS)).setText(comment.getString("updated_time"));
 					} catch ( JSONException e) { }
 				}
-			} catch ( JSONException e) {
+			} catch ( JSONException e ) {
 				// TODO: Log here something, at least during development.
 			}
 		}

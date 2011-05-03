@@ -1,0 +1,17 @@
+################################
+# General
+################################
+author = Alex Oberhauser
+version = v9999
+
+################################
+# Productive Use
+################################
+#fb.appid = RemoteAppId
+#fb.secreut = RemoteAppSecret
+
+################################
+# Development
+################################
+fb.appid = LocalAppID
+fb.secret = LocalAppSecret
