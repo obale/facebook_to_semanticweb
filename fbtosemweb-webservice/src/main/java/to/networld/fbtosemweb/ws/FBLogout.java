@@ -22,11 +22,11 @@ package to.networld.fbtosemweb.ws;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import to.networld.fbtosemweb.ws.common.ServletHelper;
 
@@ -35,17 +35,18 @@ import to.networld.fbtosemweb.ws.common.ServletHelper;
  */
 public class FBLogout extends HttpServlet {
 	private static final long serialVersionUID = -5770420350901027081L;
-
+	
 	@Override
 	public void doGet(HttpServletRequest _request, HttpServletResponse _response) throws ServletException, IOException {
-		ServletContext context = getServletContext();
-		String access_token = (String) context.getAttribute("access_token");
+		HttpSession session = _request.getSession();
+		String access_token = (String) session.getAttribute(FBLogin.SESSION_NAME);
 		if ( access_token != null ) {
 			StringBuffer logoutURL = new StringBuffer();
 			logoutURL.append("https://www.facebook.com/logout.php");
 			logoutURL.append("?next=" + ServletHelper.getCurrentUrl(_request, false));
 			logoutURL.append("&" + access_token);
-			context.removeAttribute("access_token");
+			session.removeAttribute(FBLogin.SESSION_NAME);
+			session.invalidate();
 			_response.sendRedirect(".");
 		} else {
 			_response.sendRedirect(".");

@@ -1,4 +1,5 @@
 <!doctype html>
+<%@page import="to.networld.fbtosemweb.ws.FBLogin"%>
 <%@page import="to.networld.facebook.FacebookAgentHandler"%>
 <%@page import="to.networld.facebook.FacebookAgent"%>
 <html>
@@ -8,7 +9,7 @@
         </head>
         <body>
 <%
-	String access_token = (String)getServletContext().getAttribute("access_token");
+			String access_token = (String)request.getSession().getAttribute(FBLogin.SESSION_NAME);
 %>
                 <div id="fb-root"></div>
 

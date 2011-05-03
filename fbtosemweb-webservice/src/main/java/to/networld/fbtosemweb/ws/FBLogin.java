@@ -26,7 +26,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.URL;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +42,8 @@ public class FBLogin extends HttpServlet {
 
 	private static final String APP_ID = AppSecretHandler.getApplicationID();
 	private static final String SECRET= AppSecretHandler.getApplicationSecret();
+	
+	public static final String SESSION_NAME = "nw_access_token";
 
 	/**
 	 * Get the access_token to be able to access the client information.
@@ -73,8 +74,7 @@ public class FBLogin extends HttpServlet {
 		String fbcode = _request.getParameter("code");
 		PrintWriter out = _response.getWriter();
 		
-		ServletContext context = getServletContext();
-		String access_token = (String) context.getAttribute("access_token");
+		String access_token = (String) _request.getSession().getAttribute(SESSION_NAME);
 		if ( fbcode == null && access_token == null ) {
 			StringBuffer fbcodeURL = new StringBuffer();
 			fbcodeURL.append("https://www.facebook.com/dialog/oauth");
@@ -85,7 +85,7 @@ public class FBLogin extends HttpServlet {
 		} else {
 			if ( access_token == null ) {
 				access_token = getAccessToken(fbcode, ServletHelper.getCurrentUrl(_request, false));
-				context.setAttribute("access_token", access_token);
+				_request.getSession().setAttribute(SESSION_NAME, access_token);
 			}
 			_response.sendRedirect(".");
 		}
